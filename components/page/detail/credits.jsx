@@ -26,10 +26,11 @@ const Credits = () => {
   ];
 
   useEffect(() => {
-    fetchCredits(
-      baseUrl + query.type + "/" + query.id + "/credits" + "?api_key=" + token
-    );
-  }, []);
+    query.id &&
+      fetchCredits(
+        baseUrl + query.type + "/" + query.id + "/credits" + "?api_key=" + token
+      );
+  }, [router.isReady]);
 
   return (
     <div>
